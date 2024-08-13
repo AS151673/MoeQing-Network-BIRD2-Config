@@ -1,26 +1,27 @@
-# MoeQing Network | AS200105
+# MirrorEdge Network | AS151673
 
-The bird2 config for MoeQing Network
+The bird2 config for MirrorEdge Network
+Forked From [MoeQing](https://github.com/MoeQing-Network/MoeQing-Network-BIRD2-Config)
 
 
 ## Internal Community:
 
->(200105, <999,  0)            Community for all my node
+>(151673, <999,  0)            Community for all my node
 >
->(200105, <999,  1)            Community only for this node
+>(151673, <999,  1)            Community only for this node
 
 ```
-(200105,   1, *)   do not send to ibgp
-(200105,   2, *)   do not send to ebgp
-(200105,   3, *)   do not send to kernel
-(200105,   4, *)   send to kernel but mark unreachable
-(200105,   5, *)   send to kernel but mark blackhole
-(200105, 101, *)   allow bgp_local_perf
-(200105, 201, *)   transit routes
-(200105, 202, *)   ixp rs routes
-(200105, 203, *)   peer routes
-(200105, 204, *)   customer routes
-(200105, 209, *)   ibgp routes
+(151673,   1, *)   do not send to ibgp
+(151673,   2, *)   do not send to ebgp
+(151673,   3, *)   do not send to kernel
+(151673,   4, *)   send to kernel but mark unreachable
+(151673,   5, *)   send to kernel but mark blackhole
+(151673, 101, *)   allow bgp_local_perf
+(151673, 201, *)   transit routes
+(151673, 202, *)   ixp rs routes
+(151673, 203, *)   peer routes
+(151673, 204, *)   customer routes
+(151673, 209, *)   ibgp routes
 ```
 
 ## Control Community:
@@ -33,46 +34,46 @@ The bird2 config for MoeQing Network
   * = 8   prepend 8 to target
  Action target selector:
   * = Action
-  (200105, 1*00, 0)            Do action to everyone
-  (200105, 1*01, asn)          Don't do action to this asn
-  (200105, 1*02, asn)          Do action to this asn
-  (200105, 1*10, 0)            Do action to every region
-  (200105, 1*11, region_code)  Don't do action to this region
-  (200105, 1*12, region_code)  Do action to this region
-  (200105, 1019, 0)            Disable (asn, 1010, 0),  (asn, 1011, local_region) as default value
-  (200105, 1*20, 0)            Do action to every country
-  (200105, 1*21, country_code) Don't do action to this country
-  (200105, 1*22, country_code) Do action to this country
-  (200105, 1*30, 1)            Do action to upstreams
-  (200105, 1*30, 2)            Do action to ixp rs
-  (200105, 1*30, 3)            Do action to peers
-  (200105, 1*30, 4)            Do action to downstreams
-  (200105, 1*30, 8)            Do action to route collectors
+  (151673, 1*00, 0)            Do action to everyone
+  (151673, 1*01, asn)          Don't do action to this asn
+  (151673, 1*02, asn)          Do action to this asn
+  (151673, 1*10, 0)            Do action to every region
+  (151673, 1*11, region_code)  Don't do action to this region
+  (151673, 1*12, region_code)  Do action to this region
+  (151673, 1019, 0)            Disable (asn, 1010, 0),  (asn, 1011, local_region) as default value
+  (151673, 1*20, 0)            Do action to every country
+  (151673, 1*21, country_code) Don't do action to this country
+  (151673, 1*22, country_code) Do action to this country
+  (151673, 1*30, 1)            Do action to upstreams
+  (151673, 1*30, 2)            Do action to ixp rs
+  (151673, 1*30, 3)            Do action to peers
+  (151673, 1*30, 4)            Do action to downstreams
+  (151673, 1*30, 8)            Do action to route collectors
 ```
 
 ## Examples:
 ```
   prepend 11 to AS6939: 
-     (200105, 1102, 6939): prepend 1 to AS6939
-     (200105, 1202, 6939): prepend 2 to AS6939
-     (200105, 1802, 6939): prepend 8 to AS6939
+     (151673, 1102, 6939): prepend 1 to AS6939
+     (151673, 1202, 6939): prepend 2 to AS6939
+     (151673, 1802, 6939): prepend 8 to AS6939
                  Total : 1+2+8 = 11
   prepend 2 to everyone but 6939:
-    (200105, 1200, 0):     prepend 2 to everyone
-    (200105, 1201, 6939):  don't do this action(prepend 2) to AS6939
+    (151673, 1200, 0):     prepend 2 to everyone
+    (151673, 1201, 6939):  don't do this action(prepend 2) to AS6939
   do not announce to anyone: 
-    (200105, 1000, 0):     do not announce to everyone
+    (151673, 1000, 0):     do not announce to everyone
   announce to all region:
-    (200105, 1019, 0):     announce to all region
+    (151673, 1019, 0):     announce to all region
   announce in Asia-E only:
-    (200105, 1010, 0):     do not announce to every region
-    (200105, 1011, 52):    but announce to Asia-E region
+    (151673, 1010, 0):     do not announce to every region
+    (151673, 1011, 52):    but announce to Asia-E region
 ```
 
 ## Informational Community
 ```
-(200105, 10000, region_code)    Received from region
-(200105, 10001, country_code)   Received from country
+(151673, 10000, region_code)    Received from region
+(151673, 10001, country_code)   Received from country
 ```
 
 ## Region code:
